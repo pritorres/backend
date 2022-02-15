@@ -1,3 +1,4 @@
+import { Delete } from '@nestjs/common';
 import { Body, Controller, Get, Post, Put } from '@nestjs/common';
 import { CreateProductDto } from '../dtos/product.dto';
 import { Product } from '../entities/product.entity';
@@ -22,8 +23,8 @@ export class ProductController {
     return user;
   }
 
-  @Put(':id')
+  @Delete(':id')
   async delete(id: number): Promise<void> {
-    await this.productServices.delete(id);
+    return await this.productServices.delete(id);
   }
 }
